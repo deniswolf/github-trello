@@ -11,11 +11,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	listen := ":8080"
-	mode := os.Getenv("GO_ENV")
-	if mode == "production" {
-		listen = ":80"
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
 	}
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(listen, nil)
+	http.ListenAndServe(":"+port, nil)
 }
