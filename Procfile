@@ -1,1 +1,1 @@
-web: bubu-git-trello
+web: main
